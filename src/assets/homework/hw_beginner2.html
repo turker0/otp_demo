@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#e5b4ff",
+                      "surface-bright": "#f7f9ff",
+                      "primary-fixed": "#cfe5ff",
+                      "secondary-container": "#fc8b2f",
+                      "primary-container": "#1d9bf0",
+                      "surface-container-highest": "#dee3ea",
+                      "primary": "#00629d",
+                      "primary-fixed-dim": "#99cbff",
+                      "on-primary-fixed": "#001d33",
+                      "secondary-fixed": "#ffdcc6",
+                      "tertiary": "#8639b4",
+                      "outline": "#6f7883",
+                      "outline-variant": "#bfc7d3",
+                      "surface-tint": "#00629d",
+                      "on-primary-fixed-variant": "#004a78",
+                      "on-surface": "#171c21",
+                      "secondary-fixed-dim": "#ffb786",
+                      "on-tertiary-fixed": "#30004b",
+                      "on-surface-variant": "#3f4851",
+                      "surface-container-high": "#e4e8f0",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f0f4fb",
+                      "inverse-surface": "#2c3136",
+                      "on-secondary-fixed": "#311300",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#6c1a9a",
+                      "on-primary": "#ffffff",
+                      "on-background": "#171c21",
+                      "surface-container": "#eaeef5",
+                      "secondary": "#964900",
+                      "inverse-primary": "#99cbff",
+                      "inverse-on-surface": "#edf1f8",
+                      "on-secondary-fixed-variant": "#723600",
+                      "on-tertiary-container": "#4a0071",
+                      "tertiary-container": "#c173f0",
+                      "surface-variant": "#dee3ea",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#d6dae1",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#f5d9ff",
+                      "on-secondary-container": "#642f00",
+                      "background": "#f7f9ff",
+                      "surface": "#f7f9ff",
+                      "on-primary-container": "#003050",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "sm": "8px",
+                      "xl": "24px",
+                      "margin-mobile": "16px",
+                      "md": "12px",
+                      "xs": "4px",
+                      "gutter": "12px",
+                      "lg": "16px",
+                      "xxl": "32px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h3": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h1": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h2": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "15px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "h3": [
+                              "17px",
+                              {
+                                      "lineHeight": "22px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h1": [
+                              "23px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display": [
+                              "30px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "h2": [
+                              "20px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md flex justify-center">
+<div class="w-full max-w-md relative bg-background min-h-[884px] shadow-sm">
+<!-- Main Content -->
+<main class="px-margin-mobile py-xl flex flex-col gap-xl">
+<header>
+<h2 class="font-h1 text-h1 text-on-background">Settings</h2>
+</header>
+<div class="flex flex-col">
+<!-- Profile -->
+<div class="min-h-[48px] flex items-center py-sm hover:bg-surface-container-low transition-colors cursor-pointer border-b border-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">person</span>
+<span class="font-body-md text-body-md text-on-surface ml-md flex-1">Profile</span>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+<!-- Notifications -->
+<div class="min-h-[48px] flex items-center py-sm hover:bg-surface-container-low transition-colors border-b border-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">notifications</span>
+<span class="font-body-md text-body-md text-on-surface ml-md flex-1">Notifications</span>
+<!-- Toggle Switch (On State) -->
+<div class="w-10 h-6 bg-primary rounded-full relative cursor-pointer flex items-center px-[2px] transition-colors">
+<div class="w-5 h-5 bg-on-primary rounded-full absolute right-[2px] shadow-[0_1px_2px_rgba(0,0,0,0.1)] transition-transform"></div>
+</div>
+</div>
+<!-- Privacy -->
+<div class="min-h-[48px] flex items-center py-sm hover:bg-surface-container-low transition-colors cursor-pointer border-b border-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">lock</span>
+<span class="font-body-md text-body-md text-on-surface ml-md flex-1">Privacy</span>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+<!-- Help -->
+<div class="min-h-[48px] flex items-center py-sm hover:bg-surface-container-low transition-colors cursor-pointer border-b border-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">help</span>
+<span class="font-body-md text-body-md text-on-surface ml-md flex-1">Help</span>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+</div>
+</main>
+</div>
+</body></html>
