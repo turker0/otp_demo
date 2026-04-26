@@ -30,6 +30,8 @@ export type RootStackParamList = {
   LibKeyboard: undefined;
   LibNavStack: undefined;
   LibNavTabs: undefined;
+  LibNavDrawer: undefined;
+  LibFlashList: undefined;
   HwBeginner1: undefined;
   HwBeginner2: undefined;
   HwBeginner3: undefined;

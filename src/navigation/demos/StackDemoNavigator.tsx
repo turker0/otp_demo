@@ -1,9 +1,9 @@
-import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
 import {
   createNativeStackNavigator,
   type NativeStackScreenProps,
 } from '@react-navigation/native-stack';
+import React from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ExitToExamplesBar } from '../../components/ExitToExamplesBar';
 import { colors, spacing } from '../../theme';
 
@@ -27,7 +27,8 @@ function StackHomeScreen({
       </Text>
       <Pressable
         style={({ pressed }) => [styles.btn, pressed && styles.btnPressed]}
-        onPress={() => navigation.navigate('StackDetail')}>
+        onPress={() => navigation.navigate('StackDetail')}
+      >
         <Text style={styles.btnText}>Push detail</Text>
       </Pressable>
     </View>
@@ -45,8 +46,12 @@ function StackDetailScreen({
         Use the header back action or the button below to pop.
       </Text>
       <Pressable
-        style={({ pressed }) => [styles.btnSecondary, pressed && styles.btnPressed]}
-        onPress={() => navigation.goBack()}>
+        style={({ pressed }) => [
+          styles.btnSecondary,
+          pressed && styles.btnPressed,
+        ]}
+        onPress={() => navigation.goBack()}
+      >
         <Text style={styles.btnSecondaryText}>goBack()</Text>
       </Pressable>
     </View>
@@ -57,11 +62,7 @@ export function StackDemoNavigator() {
   return (
     <View style={styles.root}>
       <ExitToExamplesBar />
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: colors.background },
-        }}>
+      <Stack.Navigator initialRouteName="StackDetail">
         <Stack.Screen name="StackHome" component={StackHomeScreen} />
         <Stack.Screen name="StackDetail" component={StackDetailScreen} />
       </Stack.Navigator>
@@ -126,3 +127,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+import { Platform } from 'react-native';
+
+if (Platform.OS === 'android' && Platform.Version >= 31) {
+  console.log('This device supports Android 12+ (S) features');
+}

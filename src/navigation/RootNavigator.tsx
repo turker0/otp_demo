@@ -20,6 +20,7 @@ import { ComponentTextInputScreen } from '../screens/examples/components/Compone
 import { ComponentTextScreen } from '../screens/examples/components/ComponentTextScreen';
 import { ComponentTouchableOpacityScreen } from '../screens/examples/components/ComponentTouchableOpacityScreen';
 import { ComponentViewScreen } from '../screens/examples/components/ComponentViewScreen';
+import { LibraryFlashListScreen } from '../screens/examples/libraries/LibraryFlashListScreen';
 import { LibraryKeyboardScreen } from '../screens/examples/libraries/LibraryKeyboardScreen';
 import { LibrarySafeAreaScreen } from '../screens/examples/libraries/LibrarySafeAreaScreen';
 import { StylingColorsBordersScreen } from '../screens/examples/styling/StylingColorsBordersScreen';
@@ -36,6 +37,7 @@ import { Beginner1LoginScreen } from '../screens/homework/beginner/Beginner1Logi
 import { Beginner2SettingsScreen } from '../screens/homework/beginner/Beginner2SettingsScreen';
 import { Beginner3TodoScreen } from '../screens/homework/beginner/Beginner3TodoScreen';
 import { WelcomeScreen } from '../screens/WelcomeScreen';
+import { DrawerDemoNavigator } from './demos/DrawerDemoNavigator';
 import { StackDemoNavigator } from './demos/StackDemoNavigator';
 import { TabDemoNavigator } from './demos/TabDemoNavigator';
 import type { RootStackParamList } from './types';
@@ -208,6 +210,16 @@ export function RootNavigator() {
           name="LibNavTabs"
           component={TabDemoNavigator}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LibNavDrawer"
+          component={DrawerDemoNavigator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LibFlashList"
+          component={LibraryFlashListScreen}
+          options={{ title: 'FlashList' }}
         />
         <Stack.Screen
           name="HwBeginner1"

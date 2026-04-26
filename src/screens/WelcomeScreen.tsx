@@ -179,6 +179,16 @@ export const WELCOME_SECTIONS: { title: string; items: ExampleItem[] }[] = [
         label: 'React Navigation — tabs',
         subtitle: 'Bottom tab navigator',
       },
+      {
+        route: 'LibNavDrawer',
+        label: 'React Navigation — drawer',
+        subtitle: 'Side drawer navigator',
+      },
+      {
+        route: 'LibFlashList',
+        label: 'Shopify FlashList',
+        subtitle: 'High-performance virtualized list',
+      },
     ],
   },
   {
