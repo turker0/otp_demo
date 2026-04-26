@@ -4,6 +4,7 @@ import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../theme';
 import { ComponentActivityIndicatorScreen } from '../screens/examples/components/ComponentActivityIndicatorScreen';
+import { ComponentAlertScreen } from '../screens/examples/components/ComponentAlertScreen';
 import { ComponentButtonScreen } from '../screens/examples/components/ComponentButtonScreen';
 import { ComponentFlatListScreen } from '../screens/examples/components/ComponentFlatListScreen';
 import { ComponentImageBackgroundScreen } from '../screens/examples/components/ComponentImageBackgroundScreen';
@@ -145,6 +146,7 @@ export function RootNavigator() {
           component={ComponentActivityIndicatorScreen}
           options={{ title: 'ActivityIndicator' }}
         />
+        <Stack.Screen name="CmpAlert" component={ComponentAlertScreen} options={{ title: 'Alert' }} />
         <Stack.Screen name="CmpModal" component={ComponentModalScreen} options={{ title: 'Modal' }} />
         <Stack.Screen
           name="CmpKeyboardAvoiding"

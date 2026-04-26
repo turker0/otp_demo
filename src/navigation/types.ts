@@ -16,6 +16,7 @@ export type RootStackParamList = {
   CmpSectionList: undefined;
   CmpSwitch: undefined;
   CmpActivityIndicator: undefined;
+  CmpAlert: undefined;
   CmpModal: undefined;
   CmpKeyboardAvoiding: undefined;
   CmpStatusBar: undefined;

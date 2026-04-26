@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   View,
   useColorScheme,
 } from 'react-native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useTheme } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { ExampleRoute, RootStackParamList } from '../navigation/types';
 import { colors, spacing } from '../theme';
@@ -98,6 +106,11 @@ export const WELCOME_SECTIONS: { title: string; items: ExampleItem[] }[] = [
         route: 'CmpActivityIndicator',
         label: 'ActivityIndicator',
         subtitle: 'Spinner size, color, animating',
+      },
+      {
+        route: 'CmpAlert',
+        label: 'Alert',
+        subtitle: 'Native dialogs, actions, iOS prompt',
       },
       {
         route: 'CmpModal',
@@ -228,6 +241,24 @@ export const WELCOME_SECTIONS: { title: string; items: ExampleItem[] }[] = [
   },
 ];
 
+function filterSections(
+  query: string,
+): { title: string; items: ExampleItem[] }[] {
+  const q = query.trim().toLowerCase();
+  if (!q) {
+    return WELCOME_SECTIONS;
+  }
+  return WELCOME_SECTIONS.map(section => ({
+    title: section.title,
+    items: section.items.filter(
+      item =>
+        item.label.toLowerCase().includes(q) ||
+        item.subtitle.toLowerCase().includes(q) ||
+        section.title.toLowerCase().includes(q),
+    ),
+  })).filter(s => s.items.length > 0);
+}
+
 type Props = {
   navigation: Nav;
 };
@@ -236,6 +267,32 @@ export function WelcomeScreen({ navigation }: Props) {
   const insets = useSafeAreaInsets();
   const scheme = useColorScheme();
   const isDark = scheme !== 'light';
+  const theme = useTheme();
+  const searchRef = useRef<TextInput>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const filteredSections = useMemo(
+    () => filterSections(searchQuery),
+    [searchQuery],
+  );
+
+  const onSearchHeaderPress = useCallback(() => {
+    searchRef.current?.focus();
+  }, []);
+
+  const renderHeaderSearch = useCallback(() => {
+    return (
+      <WelcomeHeaderSearch
+        onPress={onSearchHeaderPress}
+        accentColor={theme.colors.primary}
+      />
+    );
+  }, [onSearchHeaderPress, theme.colors.primary]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: renderHeaderSearch,
+    });
+  }, [navigation, renderHeaderSearch]);
 
   return (
     <ScrollView
@@ -254,7 +311,28 @@ export function WelcomeScreen({ navigation }: Props) {
         </Text>
       </View>
 
-      {WELCOME_SECTIONS.map(section => (
+      <TextInput
+        ref={searchRef}
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        placeholder="Search by title or topic…"
+        placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
+        autoCorrect={false}
+        autoCapitalize="none"
+        clearButtonMode="while-editing"
+        style={[
+          styles.searchInput,
+          isDark ? styles.searchInputDark : styles.searchInputLight,
+        ]}
+      />
+
+      {filteredSections.length === 0 ? (
+        <Text style={[styles.emptySearch, isDark && styles.emptySearchDark]}>
+          No examples match “{searchQuery.trim()}”. Try another word.
+        </Text>
+      ) : null}
+
+      {filteredSections.map(section => (
         <View key={section.title} style={styles.section}>
           <Text style={[styles.sectionTitle, isDark && styles.sectionTitleDark]}>
             {section.title}
@@ -315,6 +393,41 @@ const styles = StyleSheet.create({
   heroSubtitleDark: {
     color: colors.textMuted,
   },
+  headerSearchBtn: {
+    paddingHorizontal: 4,
+    paddingVertical: 6,
+  },
+  headerSearchLabel: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  searchInput: {
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 12,
+    fontSize: 16,
+    marginBottom: spacing.md,
+  },
+  searchInputLight: {
+    backgroundColor: '#fff',
+    borderColor: '#e2e8f0',
+    color: '#0f172a',
+  },
+  searchInputDark: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    color: colors.text,
+  },
+  emptySearch: {
+    fontSize: 15,
+    color: '#64748b',
+    marginBottom: spacing.md,
+    lineHeight: 22,
+  },
+  emptySearchDark: {
+    color: colors.textMuted,
+  },
   section: {
     marginBottom: spacing.lg,
   },
@@ -360,3 +473,16 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
   },
 });
+
+type WelcomeHeaderSearchProps = {
+  onPress: () => void;
+  accentColor: string;
+};
+
+function WelcomeHeaderSearch({ onPress, accentColor }: WelcomeHeaderSearchProps) {
+  return (
+    <Pressable onPress={onPress} hitSlop={12} style={styles.headerSearchBtn}>
+      <Text style={[styles.headerSearchLabel, { color: accentColor }]}>Search</Text>
+    </Pressable>
+  );
+}
