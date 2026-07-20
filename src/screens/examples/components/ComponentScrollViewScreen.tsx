@@ -10,9 +10,9 @@ export function ComponentScrollViewScreen() {
   return (
     <ExampleLayout
       title="ScrollView"
-      description="ScrollView renders all children at once and is ideal for small, bounded content. For long lists prefer FlatList or SectionList."
+      description="ScrollView is a scrollable container that mounts every child immediately. Great for short forms and mixed content — but with hundreds of rows it wastes memory. FlatList / SectionList virtualize so only visible items mount."
       propsNote={`horizontal — row axis scrolling\ncontentContainerStyle — padding for inner content\nshowsVerticalScrollIndicator, showsHorizontalScrollIndicator\nkeyboardShouldPersistTaps: handled | always | never`}
-      morePropsNote={`nestedScrollEnabled — nested scrolls (Android)\npagingEnabled + horizontal — carousel pattern\nalwaysBounceVertical (iOS), bounces\nrefreshControl — pull to refresh (see RefreshControl screen)\nonScroll, scrollEventThrottle for tracking`}>
+      morePropsNote={`Contrast: ScrollView = all children; FlatList = windowed rows.\nnestedScrollEnabled — nested scrolls (Android)\npagingEnabled + horizontal — carousel pattern\nrefreshControl — pull to refresh (see RefreshControl screen)`}>
       <Text style={styles.section}>Vertical (nested)</Text>
       <ScrollView
         nestedScrollEnabled

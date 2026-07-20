@@ -3,23 +3,36 @@ import { useColorScheme } from 'react-native';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../theme';
+import { ComponentActionSheetIOSScreen } from '../screens/examples/components/ComponentActionSheetIOSScreen';
 import { ComponentActivityIndicatorScreen } from '../screens/examples/components/ComponentActivityIndicatorScreen';
 import { ComponentAlertScreen } from '../screens/examples/components/ComponentAlertScreen';
+import { ComponentAnimatedScreen } from '../screens/examples/components/ComponentAnimatedScreen';
+import { ComponentBackHandlerScreen } from '../screens/examples/components/ComponentBackHandlerScreen';
 import { ComponentButtonScreen } from '../screens/examples/components/ComponentButtonScreen';
+import { ComponentDimensionsScreen } from '../screens/examples/components/ComponentDimensionsScreen';
+import { ComponentDrawerLayoutAndroidScreen } from '../screens/examples/components/ComponentDrawerLayoutAndroidScreen';
 import { ComponentFlatListScreen } from '../screens/examples/components/ComponentFlatListScreen';
 import { ComponentImageBackgroundScreen } from '../screens/examples/components/ComponentImageBackgroundScreen';
 import { ComponentImageScreen } from '../screens/examples/components/ComponentImageScreen';
 import { ComponentKeyboardAvoidingScreen } from '../screens/examples/components/ComponentKeyboardAvoidingScreen';
+import { ComponentLinkingScreen } from '../screens/examples/components/ComponentLinkingScreen';
 import { ComponentModalScreen } from '../screens/examples/components/ComponentModalScreen';
+import { ComponentPermissionsAndroidScreen } from '../screens/examples/components/ComponentPermissionsAndroidScreen';
+import { ComponentPixelRatioScreen } from '../screens/examples/components/ComponentPixelRatioScreen';
 import { ComponentPressableScreen } from '../screens/examples/components/ComponentPressableScreen';
 import { ComponentRefreshControlScreen } from '../screens/examples/components/ComponentRefreshControlScreen';
+import { ComponentSafeAreaViewScreen } from '../screens/examples/components/ComponentSafeAreaViewScreen';
 import { ComponentScrollViewScreen } from '../screens/examples/components/ComponentScrollViewScreen';
 import { ComponentSectionListScreen } from '../screens/examples/components/ComponentSectionListScreen';
 import { ComponentStatusBarScreen } from '../screens/examples/components/ComponentStatusBarScreen';
+import { ComponentStyleSheetScreen } from '../screens/examples/components/ComponentStyleSheetScreen';
 import { ComponentSwitchScreen } from '../screens/examples/components/ComponentSwitchScreen';
 import { ComponentTextInputScreen } from '../screens/examples/components/ComponentTextInputScreen';
 import { ComponentTextScreen } from '../screens/examples/components/ComponentTextScreen';
+import { ComponentToastAndroidScreen } from '../screens/examples/components/ComponentToastAndroidScreen';
+import { ComponentTouchableHighlightScreen } from '../screens/examples/components/ComponentTouchableHighlightScreen';
 import { ComponentTouchableOpacityScreen } from '../screens/examples/components/ComponentTouchableOpacityScreen';
+import { ComponentTouchableWithoutFeedbackScreen } from '../screens/examples/components/ComponentTouchableWithoutFeedbackScreen';
 import { ComponentViewScreen } from '../screens/examples/components/ComponentViewScreen';
 import { LibraryFlashListScreen } from '../screens/examples/libraries/LibraryFlashListScreen';
 import { LibraryKeyboardScreen } from '../screens/examples/libraries/LibraryKeyboardScreen';
@@ -92,8 +105,25 @@ export function RootNavigator() {
           component={WelcomeScreen}
           options={{ title: 'RN Curriculum Demo' }}
         />
-        <Stack.Screen name="CmpText" component={ComponentTextScreen} options={{ title: 'Text' }} />
+        {/* 1. Core / Layout */}
         <Stack.Screen name="CmpView" component={ComponentViewScreen} options={{ title: 'View' }} />
+        <Stack.Screen
+          name="CmpSafeAreaView"
+          component={ComponentSafeAreaViewScreen}
+          options={{ title: 'SafeAreaView' }}
+        />
+        <Stack.Screen
+          name="CmpScrollView"
+          component={ComponentScrollViewScreen}
+          options={{ title: 'ScrollView' }}
+        />
+        <Stack.Screen
+          name="CmpKeyboardAvoiding"
+          component={ComponentKeyboardAvoidingScreen}
+          options={{ title: 'KeyboardAvoidingView' }}
+        />
+        {/* 2. Text & Media */}
+        <Stack.Screen name="CmpText" component={ComponentTextScreen} options={{ title: 'Text' }} />
         <Stack.Screen
           name="CmpImage"
           component={ComponentImageScreen}
@@ -104,7 +134,14 @@ export function RootNavigator() {
           component={ComponentImageBackgroundScreen}
           options={{ title: 'ImageBackground' }}
         />
-        <Stack.Screen name="CmpButton" component={ComponentButtonScreen} options={{ title: 'Button' }} />
+        {/* 3. Input */}
+        <Stack.Screen
+          name="CmpTextInput"
+          component={ComponentTextInputScreen}
+          options={{ title: 'TextInput' }}
+        />
+        <Stack.Screen name="CmpSwitch" component={ComponentSwitchScreen} options={{ title: 'Switch' }} />
+        {/* 4. Pressable / Touchable */}
         <Stack.Screen
           name="CmpPressable"
           component={ComponentPressableScreen}
@@ -116,20 +153,17 @@ export function RootNavigator() {
           options={{ title: 'TouchableOpacity' }}
         />
         <Stack.Screen
-          name="CmpTextInput"
-          component={ComponentTextInputScreen}
-          options={{ title: 'TextInput' }}
+          name="CmpTouchableHighlight"
+          component={ComponentTouchableHighlightScreen}
+          options={{ title: 'TouchableHighlight' }}
         />
         <Stack.Screen
-          name="CmpScrollView"
-          component={ComponentScrollViewScreen}
-          options={{ title: 'ScrollView' }}
+          name="CmpTouchableWithoutFeedback"
+          component={ComponentTouchableWithoutFeedbackScreen}
+          options={{ title: 'TouchableWithoutFeedback' }}
         />
-        <Stack.Screen
-          name="CmpRefreshControl"
-          component={ComponentRefreshControlScreen}
-          options={{ title: 'RefreshControl' }}
-        />
+        <Stack.Screen name="CmpButton" component={ComponentButtonScreen} options={{ title: 'Button' }} />
+        {/* 5. List Views */}
         <Stack.Screen
           name="CmpFlatList"
           component={ComponentFlatListScreen}
@@ -140,24 +174,80 @@ export function RootNavigator() {
           component={ComponentSectionListScreen}
           options={{ title: 'SectionList' }}
         />
-        <Stack.Screen name="CmpSwitch" component={ComponentSwitchScreen} options={{ title: 'Switch' }} />
+        {/* 6. Feedback & Status */}
         <Stack.Screen
           name="CmpActivityIndicator"
           component={ComponentActivityIndicatorScreen}
           options={{ title: 'ActivityIndicator' }}
         />
-        <Stack.Screen name="CmpAlert" component={ComponentAlertScreen} options={{ title: 'Alert' }} />
-        <Stack.Screen name="CmpModal" component={ComponentModalScreen} options={{ title: 'Modal' }} />
         <Stack.Screen
-          name="CmpKeyboardAvoiding"
-          component={ComponentKeyboardAvoidingScreen}
-          options={{ title: 'KeyboardAvoidingView' }}
+          name="CmpRefreshControl"
+          component={ComponentRefreshControlScreen}
+          options={{ title: 'RefreshControl' }}
         />
+        <Stack.Screen name="CmpAlert" component={ComponentAlertScreen} options={{ title: 'Alert' }} />
         <Stack.Screen
           name="CmpStatusBar"
           component={ComponentStatusBarScreen}
           options={{ title: 'StatusBar' }}
         />
+        {/* 7. Overlay */}
+        <Stack.Screen name="CmpModal" component={ComponentModalScreen} options={{ title: 'Modal' }} />
+        {/* 8. Styling & Layout Utilities */}
+        <Stack.Screen
+          name="CmpStyleSheet"
+          component={ComponentStyleSheetScreen}
+          options={{ title: 'StyleSheet' }}
+        />
+        <Stack.Screen
+          name="CmpDimensions"
+          component={ComponentDimensionsScreen}
+          options={{ title: 'Dimensions' }}
+        />
+        <Stack.Screen
+          name="CmpPixelRatio"
+          component={ComponentPixelRatioScreen}
+          options={{ title: 'PixelRatio' }}
+        />
+        {/* 9. Animation */}
+        <Stack.Screen
+          name="CmpAnimated"
+          component={ComponentAnimatedScreen}
+          options={{ title: 'Animated' }}
+        />
+        {/* 10. System / Navigation */}
+        <Stack.Screen
+          name="CmpLinking"
+          component={ComponentLinkingScreen}
+          options={{ title: 'Linking' }}
+        />
+        <Stack.Screen
+          name="CmpBackHandler"
+          component={ComponentBackHandlerScreen}
+          options={{ title: 'BackHandler' }}
+        />
+        {/* 11. Platform-Specific */}
+        <Stack.Screen
+          name="CmpDrawerLayoutAndroid"
+          component={ComponentDrawerLayoutAndroidScreen}
+          options={{ title: 'DrawerLayoutAndroid' }}
+        />
+        <Stack.Screen
+          name="CmpPermissionsAndroid"
+          component={ComponentPermissionsAndroidScreen}
+          options={{ title: 'PermissionsAndroid' }}
+        />
+        <Stack.Screen
+          name="CmpToastAndroid"
+          component={ComponentToastAndroidScreen}
+          options={{ title: 'ToastAndroid' }}
+        />
+        <Stack.Screen
+          name="CmpActionSheetIOS"
+          component={ComponentActionSheetIOSScreen}
+          options={{ title: 'ActionSheetIOS' }}
+        />
+        {/* Styling */}
         <Stack.Screen
           name="StyFlex"
           component={StylingFlexScreen}
@@ -193,6 +283,7 @@ export function RootNavigator() {
           component={StylingOpacityOverflowScreen}
           options={{ title: 'Opacity & overflow' }}
         />
+        {/* Libraries */}
         <Stack.Screen
           name="LibSafeArea"
           component={LibrarySafeAreaScreen}
@@ -223,6 +314,7 @@ export function RootNavigator() {
           component={LibraryFlashListScreen}
           options={{ title: 'FlashList' }}
         />
+        {/* Homework */}
         <Stack.Screen
           name="HwBeginner1"
           component={Beginner1LoginScreen}

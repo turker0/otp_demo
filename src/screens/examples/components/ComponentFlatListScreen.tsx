@@ -16,9 +16,9 @@ export function ComponentFlatListScreen() {
   return (
     <ExampleLayout
       title="FlatList"
-      description="FlatList virtualizes rows: only visible items mount. Provide data, keyExtractor, and renderItem for efficient lists."
+      description="FlatList is a virtualized list: only rows near the viewport mount. That is why it scales where ScrollView mapping 1,000 Views would stall. Use it for any long, homogeneous list."
       propsNote={`data, renderItem, keyExtractor\nListHeaderComponent, ListFooterComponent\nItemSeparatorComponent, columnWrapperStyle (with numColumns)\ninitialNumToRender, windowSize, maxToRenderPerBatch`}
-      morePropsNote={`inverted — chat-style reverse\nnumColumns — grid; item width auto\ngetItemLayout — skip measurement when height fixed\nonViewableItemsChanged + viewabilityConfig for impressions\nListEmptyComponent when data=[]`}>
+      morePropsNote={`vs ScrollView: virtualization = recycle off-screen rows.\ninverted — chat-style reverse\ngetItemLayout — skip measurement when height fixed\nListEmptyComponent when data=[]\nSee also FlashList in Libraries for even faster lists`}>
       <Text style={styles.sub}>List with header + separators</Text>
       <FlatList
         data={DATA}

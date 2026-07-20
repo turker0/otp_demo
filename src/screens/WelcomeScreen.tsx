@@ -35,102 +35,217 @@ export type ExampleItem = {
 
 export const WELCOME_SECTIONS: { title: string; items: ExampleItem[] }[] = [
   {
-    title: '1. Components',
+    title: '1. Core / Layout Components',
     items: [
-      {
-        route: 'CmpText',
-        label: 'Text',
-        subtitle: 'Strings, nesting, truncation, accessibility',
-      },
       {
         route: 'CmpView',
         label: 'View',
-        subtitle: 'Layout, pointer events, accessibility container',
+        subtitle: 'Base container — layout, pointer events, a11y',
       },
       {
-        route: 'CmpImage',
-        label: 'Image',
-        subtitle: 'URI, resizeMode, loading, blur, dimensions',
-      },
-      {
-        route: 'CmpImageBackground',
-        label: 'ImageBackground',
-        subtitle: 'Full-bleed image with children on top',
-      },
-      {
-        route: 'CmpButton',
-        label: 'Button',
-        subtitle: 'Cross-platform text button (limited styling)',
-      },
-      {
-        route: 'CmpPressable',
-        label: 'Pressable',
-        subtitle: 'Press states, ripple, delay, hitSlop',
-      },
-      {
-        route: 'CmpTouchableOpacity',
-        label: 'TouchableOpacity',
-        subtitle: 'Legacy opacity feedback touchable',
-      },
-      {
-        route: 'CmpTextInput',
-        label: 'TextInput',
-        subtitle: 'Keyboard, return key, auto-cap, selection',
+        route: 'CmpSafeAreaView',
+        label: 'SafeAreaView',
+        subtitle: 'Respects notches, status bars, home indicators',
       },
       {
         route: 'CmpScrollView',
         label: 'ScrollView',
-        subtitle: 'Vertical, horizontal, indicators, paging',
-      },
-      {
-        route: 'CmpRefreshControl',
-        label: 'RefreshControl',
-        subtitle: 'Pull-to-refresh with ScrollView / FlatList',
-      },
-      {
-        route: 'CmpFlatList',
-        label: 'FlatList',
-        subtitle: 'Virtualized rows, headers, separators, grid',
-      },
-      {
-        route: 'CmpSectionList',
-        label: 'SectionList',
-        subtitle: 'Section headers and grouped data',
-      },
-      {
-        route: 'CmpSwitch',
-        label: 'Switch',
-        subtitle: 'Boolean toggle, colors, ios_backgroundColor',
-      },
-      {
-        route: 'CmpActivityIndicator',
-        label: 'ActivityIndicator',
-        subtitle: 'Spinner size, color, animating',
-      },
-      {
-        route: 'CmpAlert',
-        label: 'Alert',
-        subtitle: 'Native dialogs, actions, iOS prompt',
-      },
-      {
-        route: 'CmpModal',
-        label: 'Modal',
-        subtitle: 'Overlay, presentation, Android back',
+        subtitle: 'Scrollable container — renders all children at once',
       },
       {
         route: 'CmpKeyboardAvoiding',
         label: 'KeyboardAvoidingView',
-        subtitle: 'Built-in RN keyboard avoidance',
-      },
-      {
-        route: 'CmpStatusBar',
-        label: 'StatusBar',
-        subtitle: 'Bar style, backgroundColor, hidden',
+        subtitle: 'Shifts layout when the keyboard opens',
       },
     ],
   },
   {
-    title: '2. Styling',
+    title: '2. Text & Media',
+    items: [
+      {
+        route: 'CmpText',
+        label: 'Text',
+        subtitle: 'All text rendering — nesting, truncation, a11y',
+      },
+      {
+        route: 'CmpImage',
+        label: 'Image',
+        subtitle: 'Static and remote images — resizeMode, loading',
+      },
+      {
+        route: 'CmpImageBackground',
+        label: 'ImageBackground',
+        subtitle: 'Image as a background container with children',
+      },
+    ],
+  },
+  {
+    title: '3. Input Components',
+    items: [
+      {
+        route: 'CmpTextInput',
+        label: 'TextInput',
+        subtitle: 'Text and number entry — keyboard, return key',
+      },
+      {
+        route: 'CmpSwitch',
+        label: 'Switch',
+        subtitle: 'Boolean toggle — colors, ios_backgroundColor',
+      },
+    ],
+  },
+  {
+    title: '4. Pressable / Touchable Components',
+    items: [
+      {
+        route: 'CmpPressable',
+        label: 'Pressable',
+        subtitle: 'Modern API — replaces the Touchable family',
+      },
+      {
+        route: 'CmpTouchableOpacity',
+        label: 'TouchableOpacity',
+        subtitle: 'Legacy — opacity feedback while pressed',
+      },
+      {
+        route: 'CmpTouchableHighlight',
+        label: 'TouchableHighlight',
+        subtitle: 'Legacy — underlay color while pressed',
+      },
+      {
+        route: 'CmpTouchableWithoutFeedback',
+        label: 'TouchableWithoutFeedback',
+        subtitle: 'Legacy — press with no visual feedback',
+      },
+      {
+        route: 'CmpButton',
+        label: 'Button',
+        subtitle: 'Simple pre-styled button (limited styling)',
+      },
+    ],
+  },
+  {
+    title: '5. List Views (Performance-focused)',
+    items: [
+      {
+        route: 'CmpFlatList',
+        label: 'FlatList',
+        subtitle: 'Virtualized list — contrast with ScrollView',
+      },
+      {
+        route: 'CmpSectionList',
+        label: 'SectionList',
+        subtitle: 'Grouped/sectioned virtualized list',
+      },
+    ],
+  },
+  {
+    title: '6. Feedback & Status Components',
+    items: [
+      {
+        route: 'CmpActivityIndicator',
+        label: 'ActivityIndicator',
+        subtitle: 'Loading spinner — size, color, animating',
+      },
+      {
+        route: 'CmpRefreshControl',
+        label: 'RefreshControl',
+        subtitle: 'Pull-to-refresh inside ScrollView / FlatList',
+      },
+      {
+        route: 'CmpAlert',
+        label: 'Alert',
+        subtitle: 'Native alert dialogs — actions, iOS prompt',
+      },
+      {
+        route: 'CmpStatusBar',
+        label: 'StatusBar',
+        subtitle: 'OS status bar style, color, visibility',
+      },
+    ],
+  },
+  {
+    title: '7. Overlay Components',
+    items: [
+      {
+        route: 'CmpModal',
+        label: 'Modal',
+        subtitle: 'Content above the app — presentation, back',
+      },
+    ],
+  },
+  {
+    title: '8. Styling & Layout Utilities',
+    items: [
+      {
+        route: 'CmpStyleSheet',
+        label: 'StyleSheet',
+        subtitle: 'Styling abstraction — create, hairline, absoluteFill',
+      },
+      {
+        route: 'CmpDimensions',
+        label: 'Dimensions',
+        subtitle: 'Device screen size — prefer useWindowDimensions',
+      },
+      {
+        route: 'CmpPixelRatio',
+        label: 'PixelRatio',
+        subtitle: 'Pixel density — layout units ↔ physical pixels',
+      },
+    ],
+  },
+  {
+    title: '9. Animation',
+    items: [
+      {
+        route: 'CmpAnimated',
+        label: 'Animated',
+        subtitle: 'Built-in animation — then learn Reanimated',
+      },
+    ],
+  },
+  {
+    title: '10. System / Navigation APIs',
+    items: [
+      {
+        route: 'CmpLinking',
+        label: 'Linking',
+        subtitle: 'Deep links and opening URLs',
+      },
+      {
+        route: 'CmpBackHandler',
+        label: 'BackHandler',
+        subtitle: 'Android hardware / gesture back button',
+      },
+    ],
+  },
+  {
+    title: '11. Platform-Specific',
+    items: [
+      {
+        route: 'CmpDrawerLayoutAndroid',
+        label: 'DrawerLayoutAndroid',
+        subtitle: 'Android only — native sliding drawer',
+      },
+      {
+        route: 'CmpPermissionsAndroid',
+        label: 'PermissionsAndroid',
+        subtitle: 'Android only — runtime permission requests',
+      },
+      {
+        route: 'CmpToastAndroid',
+        label: 'ToastAndroid',
+        subtitle: 'Android only — short system toast messages',
+      },
+      {
+        route: 'CmpActionSheetIOS',
+        label: 'ActionSheetIOS',
+        subtitle: 'iOS only — native action and share sheets',
+      },
+    ],
+  },
+  {
+    title: '12. Styling',
     items: [
       {
         route: 'StyFlex',
@@ -170,7 +285,7 @@ export const WELCOME_SECTIONS: { title: string; items: ExampleItem[] }[] = [
     ],
   },
   {
-    title: '3. Libraries',
+    title: '13. Libraries',
     items: [
       {
         route: 'LibSafeArea',
@@ -205,7 +320,7 @@ export const WELCOME_SECTIONS: { title: string; items: ExampleItem[] }[] = [
     ],
   },
   {
-    title: '4. Homework',
+    title: '14. Homework',
     items: [
       {
         route: 'HwBeginner1',
@@ -306,8 +421,8 @@ export function WelcomeScreen({ navigation }: Props) {
           RN Curriculum Demo
         </Text>
         <Text style={[styles.heroSubtitle, isDark && styles.heroSubtitleDark]}>
-          Core components, common styles, and essential libraries. Tap an item
-          to open a focused example screen.
+          Core APIs grouped by role, plus styling, libraries, and homework. Tap
+          an item to open a focused example screen.
         </Text>
       </View>
 

@@ -10,9 +10,9 @@ export function ComponentPressableScreen() {
   return (
     <ExampleLayout
       title="Pressable"
-      description="Pressable is the modern touchable primitive. It exposes pressed state for styling, supports long press, and works well with accessibility."
-      propsNote={`onPress, onLongPress, onPressIn, onPressOut\nstyle={({ pressed }) => [...]}\nhitSlop, pressRetentionOffset\nandroid_ripple={{ color, borderless }}`}
-      morePropsNote={`unstable_pressDelay — ms before press in\nandroid_disableSound\naccessibilityRole, accessibilityState: disabled\nPressable can wrap complex layouts (unlike legacy Text-only Button)`}>
+      description="Pressable is the modern, recommended touchable API. It supersedes TouchableOpacity, TouchableHighlight, and TouchableWithoutFeedback by exposing pressed state for any feedback (opacity, underlay, ripple, custom styles) in one primitive."
+      propsNote={`onPress, onLongPress, onPressIn, onPressOut\nstyle={({ pressed }) => [...]} — replaces activeOpacity / underlayColor\nhitSlop, pressRetentionOffset\nandroid_ripple={{ color, borderless }}`}
+      morePropsNote={`Why Pressable won: one API for all press feedback + better a11y.\nLegacy Touchable* screens in this section show the older patterns.\nunstable_pressDelay — ms before press in\naccessibilityRole, accessibilityState: disabled`}>
       <Pressable
         hitSlop={12}
         onPress={() => setCount(c => c + 1)}

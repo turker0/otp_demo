@@ -31,9 +31,9 @@ export function ComponentSectionListScreen() {
   return (
     <ExampleLayout
       title="SectionList"
-      description="SectionList is like FlatList but data is grouped into sections with optional sticky headers—ideal for alphabet lists, settings screens, and grouped tables."
+      description="SectionList is a virtualized list (like FlatList) with section headers — ideal for alphabetized contacts, settings groups, and any grouped data. Same virtualization win over ScrollView: off-screen rows unmount."
       propsNote={`sections: { title, data, key? }[]\nrenderItem — same shape as FlatList\nkeyExtractor\nrenderSectionHeader, renderSectionFooter\nstickySectionHeadersEnabled`}
-      morePropsNote={`SectionSeparatorComponent, ItemSeparatorComponent\ninitialNumToRender, maxToRenderPerBatch (perf)\ngetItemLayout when rows are fixed height\nListEmptyComponent when all sections empty`}>
+      morePropsNote={`vs ScrollView: still virtualized — only nearby rows mount.\nSectionSeparatorComponent, ItemSeparatorComponent\ngetItemLayout when rows are fixed height\nListEmptyComponent when all sections empty`}>
       <SectionList
         sections={SECTIONS}
         keyExtractor={item => item.id}
